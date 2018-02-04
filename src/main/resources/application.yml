@@ -1,0 +1,32 @@
+server:
+  port: 8088
+spring:
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+    prefix: classpath:/templates/
+#启动h2控制台
+  h2:
+    console:
+      enabled: true
+ # datasource:
+ #   url: jdbc:mysql://localhost/newblog?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+ #   username: root
+ #   password: 123456
+ #   driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+#es
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      properties:
+        transport: 
+        tcp: 
+        connect_timeout: 120s
+      
+
+    

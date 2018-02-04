@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"	
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/header :: header}"></head>
+<body>
+	<!-- 页面内容 Page Content -->
+	<div class="container blog-content-container">
+		<!-- default-target-url 默认情况下它会跳转到当前应用的根路径，即欢迎页面
+			http://elim.iteye.com/blog/2154714
+		 -->
+		<form action="#" th:action="@{~/login}" method="post">
+			<!-- bootstrap的h2样式
+				表单必须为post提交,url默认为/login,这是springsecurity的规定
+			 -->
+			<h2>请登录</h2>
+			<!--col-md-5: http://blog.csdn.net/sinat_34719507/article/details/53472054 -->
+			<div class="form-group col-md-5">
+    				<label for="username" class="col-form-label">账号</label>
+   				<input type="text" class="form-control" id="username" name="username" maxlength="50" placeholder="请输入账号">
+  			</div>
+  			
+  			<div class="form-group col-md-5">
+    				<label for="password" class="col-form-label">密码</label>
+   				<input type="password" class="form-control" id="password" name="password" maxlength="30" placeholder="请输入密码">
+  			</div>
+  			
+  			<div class="form-group col-md-5">
+   				<input type="checkbox" name="remember-me">记住我
+  			</div>
+  			
+  			<div class="form-group col-md-5">
+  				<button class="btn btn-primary" type="submit">登录</button>
+  			</div>
+  			
+  			<div class="col-md-5" th:if="${loginError}">
+  				<p class="blog-label-error" th:text="${errorMsg}"></p>
+  			</div>
+		</form>
+	</div>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
